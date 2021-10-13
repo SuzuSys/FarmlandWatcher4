@@ -1,24 +1,6 @@
-# farmer-app
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+      ____                                 _                 _ __        __    _       _
+     |  __| __ _ _ __ _ __ ___   __ _ _ __| | __ _ _ __   __| |\ \      / /_ _| |_ ___| |__   ___ _ __
+     | |__ / _` | '__| '_ ` _ \ / _` | '__| |/ _` | '_ \ / _` | \ \ /\ / / _` | __/ __| '_ \ / _ \ '__|
+     | |__| (_| | |  | | | | | | (_| | |  | | (_| | | | | (_| |  \ V  V / (_| | || (__| | | |  __/ |
+     |_|   \__,_|_|  |_| |_| |_|\__,_|_|  |_|\__,_|_| |_|\__,_|   \_/\_/ \__,_|\__\___|_| |_|\___|_|
+ ----------------------------------------------------------------------------------------------------------
