@@ -1,60 +1,45 @@
 <template>
   <v-app>
-    <v-app-bar
+    <v-navigation-drawer
+      v-model="drawer"
       app
-      color="primary"
-      dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+      <!--  -->
+    </v-navigation-drawer>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title
+        class="pl-0 pl-sm-2"
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        FarmlandWatcher
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        @click="goSignIn"
+        style="text-transform: none"
+      >
+        Sign In
       </v-btn>
     </v-app-bar>
-
     <v-main>
-      <HelloWorld/>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
-    //
+    drawer: null
   }),
+  methods: {
+    goSignIn: function() {
+      this.$router.push({ path: '/signin' });
+    }
+  }
 };
 </script>

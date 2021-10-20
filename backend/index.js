@@ -6,6 +6,8 @@ const fs = require("fs-extra");
 const https = require("https");
 const speakeasy = require("speakeasy");
 const QRcode = require("qrcode");
+const AWS = require('aws-sdk');
+AWS.config.update({region: 'ap-northeast-1'});
 
 // begin{debug setting}
 const out = fs.createWriteStream("info.log");
@@ -55,6 +57,33 @@ QRcode.toDataURL(url, (err, qrcode) => {
   }
 });
 // end{secret setting}
+
+// begin{amazon ses setting}
+const ses = new AWS.SES();
+const ses_params = {
+  Destination: {
+    ToAddresses: ['farmlandwatcher@gmail.com']
+  },
+  Message: {
+    Body: {
+      Text: {
+        Data: 'こんにちは SES',
+        Charset: 'utf-8'
+      }
+    },
+    Subject: {
+      Data: 'こんにちは',
+      Charset: 'utf-8'
+    }
+  },
+  Source: 'sigmatics@outlook.jp'
+};
+
+ses.sendEmail(ses_params, (err, data) => {
+  if (err) console.log(err, err.stack);
+  else console.log(data);
+});
+// end{amazon ses setting}
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
